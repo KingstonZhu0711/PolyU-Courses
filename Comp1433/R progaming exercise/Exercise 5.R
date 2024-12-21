@@ -1,0 +1,10 @@
+points<-1000
+x<-runif(points,-1,1)
+y<-runif(points,-1,1)
+c=x+y
+distance<-sqrt(c^2)
+incircle<-ifelse(distance<1,TRUE,FALSE)
+b<-table(incircle)
+a<-b["TRUE"]/(b["FALSE"]+b["TRUE"])
+pi<-a*4
+print(pi)
