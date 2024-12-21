@@ -1,0 +1,54 @@
+Client: 172.16.141.128
+Access Time: 2024-04-16 14:00:18
+Requested File: /index.html
+Response Type: text/html
+
+Client: 172.16.141.128
+Access Time: 2024-04-16 14:00:44
+Requested File: /apple.jpg
+Response Type: image/jpeg
+
+Client: 172.16.141.128
+Access Time: 2024-04-16 14:02:10
+Requested File: /Number.txt
+Response Type: text/txt
+
+Client: 172.16.141.128
+Access Time: 2024-04-16 14:09:24
+Requested File: /Number.txt
+Response Type: text/txt
+
+Client: 172.16.141.128
+Access Time: 2024-04-16 18:03:47
+Requested File: /Number.txt
+Response Type: text/txt
+
+Client: 172.16.141.128
+Access Time: 2024-04-16 18:06:16
+Requested File: /Number.txt
+Response Type: text/txt
+
+Client: 172.16.141.128
+Access Time: 2024-04-16 18:09:02
+Requested File: /apple.jpg
+Response Type: image/jpeg
+
+Client: 172.16.141.128
+Access Time: 2024-04-16 18:09:38
+Requested File: /index.html
+Response Type: text/html
+
+Client: 172.16.141.128
+Access Time: 2024-04-16 18:10:20
+Requested File: /apple.jpg
+Response Type: image/jpeg
+
+Client: 172.16.141.128
+Access Time: 2024-04-16 18:10:36
+Requested File: /index.html
+Response Type: text/html
+
+Client: 172.16.141.128
+Access Time: 2024-04-16 18:17:28
+Requested File: /Number.txt
+Response Type: text/txt
