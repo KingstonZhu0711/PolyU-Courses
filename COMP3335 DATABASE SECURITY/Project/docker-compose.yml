@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  apache:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: medtest-apache
+    ports:
+      - "8080:80"       # Map Apache's port 80 to local port 8080
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - percona
+
+  percona:
+    image: percona/percona-server:8.0.35
+    container_name: medtest-percona
+    restart: always
+    ports:
+      - "3306:3306"    # Map MySQL's port 3306 to local port 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: supercode # Percona root user password
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin  
+    container_name: medtest-phpmyadmin
+    restart: always
+    ports:
+      - "8081:80" # Map phpMyAdmin's port 80 to local port 8081
+    environment:
+      PMA_HOST: medtest-percona
+      MYSQL_ROOT_PASSWORD: supercode
