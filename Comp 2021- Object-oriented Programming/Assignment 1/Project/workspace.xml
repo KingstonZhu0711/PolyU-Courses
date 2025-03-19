@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="16eb8e70-0b0b-444b-b9d6-c985fa593e7b" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2YQm7euPMc8bvIEdURUsFeNAjsF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "JavaMethodFindUsagesOptions.isSearchForTextOccurrences": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/liuyu/Desktop/OOP PROJECT/OOP PROJECT/OOP PROJECT/lib/mockito-core-3.12.4.jar",
+    "project.structure.last.edited": "库",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="hk.edu.polyu.comp.comp2021.tms.model.instructions" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="hk.edu.polyu.comp.comp2021.tms.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.OOP PROJECT中的所有">
+    <configuration name="ChangeTaskExecutorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OOP PROJECT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.tms.model.instructions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.tms.model.instructions" />
+      <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.tms.model.instructions.ChangeTaskExecutorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChangeTaskExecutorTest.testEmptyString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OOP PROJECT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.tms.model.instructions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.tms.model.instructions" />
+      <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.tms.model.instructions.ChangeTaskExecutorTest" />
+      <option name="METHOD_NAME" value="testEmptyString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ChangeTaskExecutorTest.testUndoChangePrerequisites" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OOP PROJECT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.tms.model.instructions.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.tms.model.instructions" />
+      <option name="MAIN_CLASS_NAME" value="hk.edu.polyu.comp.comp2021.tms.model.instructions.ChangeTaskExecutorTest" />
+      <option name="METHOD_NAME" value="testUndoChangePrerequisites" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OOP PROJECT中的所有" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OOP PROJECT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OOP PROJECT中的hk.edu.polyu.comp.comp2021.tms.model" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="OOP PROJECT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hk.edu.polyu.comp.comp2021.tms.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hk.edu.polyu.comp.comp2021.tms.model" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.OOP PROJECT中的所有" />
+        <item itemvalue="JUnit.OOP PROJECT中的hk.edu.polyu.comp.comp2021.tms.model" />
+        <item itemvalue="JUnit.ChangeTaskExecutorTest" />
+        <item itemvalue="JUnit.ChangeTaskExecutorTest.testUndoChangePrerequisites" />
+        <item itemvalue="JUnit.ChangeTaskExecutorTest.testEmptyString" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="16eb8e70-0b0b-444b-b9d6-c985fa593e7b" name="Changes" comment="" />
+      <created>1700466012314</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700466012314</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.AssertionError" package="java.lang" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StackOverflowError" package="java.lang" />
+          <option name="timeStamp" value="14" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/OOP PROJECT/OOP PROJECT/src/hk/edu/polyu/comp/comp2021/tms/model/HistoryCommandRecorder.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/OOP PROJECT/OOP PROJECT/test/hk/edu/polyu/comp/comp2021/tms/model/instructions/LoadExecutorTest.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/OOP PROJECT/OOP PROJECT/src/hk/edu/polyu/comp/comp2021/tms/model/instructions/ChangeTaskExecutor.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$CreateCompositeTaskExecutorTest.ic" NAME="CreateCompositeTaskExecutorTest 覆盖结果" MODIFIED="1700803260770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$TaskRecorderTest.ic" NAME="TaskRecorderTest 覆盖结果" MODIFIED="1700666736026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$StoreExecutorTest.ic" NAME="StoreExecutorTest 覆盖结果" MODIFIED="1700728841168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$OOP_PROJECThk_edu_polyu_comp_comp2021_tms_model_instructions.ic" NAME="OOP PROJECT中的hk.edu.polyu.comp.comp2021.tms.model.instructions 覆盖结果" MODIFIED="1700725960453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$PrintAllTasksExecutorTest.ic" NAME="PrintAllTasksExecutorTest 覆盖结果" MODIFIED="1700694005015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$OOP_PROJECT.ic" NAME="OOP PROJECT中的所有 覆盖结果" MODIFIED="1700806444049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$LoadExecutorTest_testExecuteInstructionPrimitiveTask.ic" NAME="LoadExecutorTest.testExecuteInstructionPrimitiveTask 覆盖结果" MODIFIED="1700733098828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$CriterionTest.ic" NAME="CriterionTest 覆盖结果" MODIFIED="1700570458269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$DeleteTaskExecutorTest.ic" NAME="DeleteTaskExecutorTest 覆盖结果" MODIFIED="1700693261938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$HistoryCommandRecorderTest.ic" NAME="HistoryCommandRecorderTest 覆盖结果" MODIFIED="1700575577395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$OOP_PROJECThk_edu_polyu_comp_comp2021_tms_model.ic" NAME="OOP PROJECT中的hk.edu.polyu.comp.comp2021.tms.model 覆盖结果" MODIFIED="1700806327168" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$CreatePrimitiveTaskExecutorTest.ic" NAME="CreatePrimitiveTaskExecutorTest 覆盖结果" MODIFIED="1700738763635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$ChangeTaskExecutorTest_testEmptyString.ic" NAME="ChangeTaskExecutorTest.testEmptyString 覆盖结果" MODIFIED="1700804308039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$SearchExecutorTest_testCodeCoverage.ic" NAME="SearchExecutorTest.testCodeCoverage 覆盖结果" MODIFIED="1700735106945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$CriterionRecorderTest.ic" NAME="CriterionRecorderTest 覆盖结果" MODIFIED="1700571886211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$CompositeTaskTest.ic" NAME="CompositeTaskTest 覆盖结果" MODIFIED="1700569801051" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$StoreExecutorTest_testExecuteInstruction.ic" NAME="StoreExecutorTest.testExecuteInstruction 覆盖结果" MODIFIED="1700728733443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$PrintAllCriteriaExecutorTest.ic" NAME="PrintAllCriteriaExecutorTest 覆盖结果" MODIFIED="1700693886050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$TMSTest.ic" NAME="TMSTest 覆盖结果" MODIFIED="1700726290273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$QuitExecutorTest.ic" NAME="QuitExecutorTest 覆盖结果" MODIFIED="1700679712975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$LoadExecutorTest_testCodeCoverage.ic" NAME="LoadExecutorTest.testCodeCoverage 覆盖结果" MODIFIED="1700733515815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$DefineBinaryCriterionExecutorTest.ic" NAME="DefineBinaryCriterionExecutorTest 覆盖结果" MODIFIED="1700692871555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$CommandLineParserTest.ic" NAME="CommandLineParserTest 覆盖结果" MODIFIED="1700678401200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$SearchExecutorTest_testCodeCoverageAdd2.ic" NAME="SearchExecutorTest.testCodeCoverageAdd2 覆盖结果" MODIFIED="1700735320252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$ReportEarliestFinishTimeExecutorTest.ic" NAME="ReportEarliestFinishTimeExecutorTest 覆盖结果" MODIFIED="1700694824413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$BasicCriterionTest.ic" NAME="BasicCriterionTest 覆盖结果" MODIFIED="1700555522898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$SearchExecutorTest.ic" NAME="SearchExecutorTest 覆盖结果" MODIFIED="1700801068042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$DefineNegatedCriterionExecutorTest.ic" NAME="DefineNegatedCriterionExecutorTest 覆盖结果" MODIFIED="1700693019288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$UndoExecutorTest.ic" NAME="UndoExecutorTest 覆盖结果" MODIFIED="1700802244932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$ChangeTaskExecutorTest.ic" NAME="ChangeTaskExecutorTest 覆盖结果" MODIFIED="1700806320046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$RedoExecutorTest.ic" NAME="RedoExecutorTest 覆盖结果" MODIFIED="1700680312895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$DefineBasicCriterionExecutorTest.ic" NAME="DefineBasicCriterionExecutorTest 覆盖结果" MODIFIED="1700692656838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$PrintTaskExecutorTest.ic" NAME="PrintTaskExecutorTest 覆盖结果" MODIFIED="1700801215317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$LoadExecutorTest_testCodeCoverageAdd.ic" NAME="LoadExecutorTest.testCodeCoverageAdd 覆盖结果" MODIFIED="1700733924472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$LoadExecutorTest.ic" NAME="LoadExecutorTest 覆盖结果" MODIFIED="1700733938344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$ReportDurationExecutorTest.ic" NAME="ReportDurationExecutorTest 覆盖结果" MODIFIED="1700680958826" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.instructions.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/OOP_PROJECT$BinaryCriterionTest.ic" NAME="BinaryCriterionTest 覆盖结果" MODIFIED="1700555460237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hk.edu.polyu.comp.comp2021.tms.model.*</FILTER>
+    </SUITE>
+  </component>
+</project>

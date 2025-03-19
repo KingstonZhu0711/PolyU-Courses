@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/OOP PROJECT/OOP PROJECT/lib/junit-4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/OOP PROJECT/OOP PROJECT/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/OOP PROJECT/OOP PROJECT/lib/apache-maven-3.8.8-bin.zip!/" />
+      <root url="jar://$PROJECT_DIR$/OOP PROJECT/OOP PROJECT/lib/byte-buddy-1.11.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/OOP PROJECT/OOP PROJECT/lib/mockito-core-3.12.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
