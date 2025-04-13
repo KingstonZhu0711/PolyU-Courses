@@ -1,0 +1,36 @@
+Requirements before executing the code:
+Ensure that the Python interpreter version is at least 3.9.
+Install pip: Follow the instructions in COMP 3334 Tutorial 1 to install pip for library management.
+Install Required Libraries: Open the command line and run the following commands to install the necessary libraries:
+pip install bcrypt
+pip install cryptography
+
+Run the server and client programs:
+Open two command line windows and navigate to the directory containing the code files.
+In the first window, run the server: python server.py
+In the second window, run the client: python client.py
+
+Access the database:
+Download the appropriate SQLite3 database for your operating system from the SQLite Download Page: https://www.sqlite.org/download.html
+After downloading, add the folder path containing sqlite3.exe to your system's environment variables. This allows you to edit or check the database via the command line.
+
+Enter the database:
+In the command line, change to the directory containing your code files: cd path\to\the\code\folder
+After starting the client and server, execute the following command to enter the database: sqlite3 File_System.db
+
+Note:
+File Uploading Instructions
+When using the file upload function, you can upload a file path by right-clicking the file, selecting "Copy as path," and then pasting the copied path when prompted. This will allow you to use the function effectively.
+
+File downloading instructions
+When prompted to download a file, please enter the full name of the file, including the extension (e.g., 1.txt).
+The downloaded file will be saved in the folder named downloaded_file/username.
+
+All imported external libararies with versions:
+bcrypt==4.3.0
+cryptography==44.0.2
+httpx==0.28.1
+jsonschema==4.23.0
+sqlite3
+
+Team 19
