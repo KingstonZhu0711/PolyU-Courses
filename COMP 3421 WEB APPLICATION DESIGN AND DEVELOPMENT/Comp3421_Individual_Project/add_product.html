@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Registration - ERP System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Theme Switcher -->
+    <input type="radio" name="erp-theme" id="erp-default" checked>
+    <input type="radio" name="erp-theme" id="erp-modern">
+    <input type="radio" name="erp-theme" id="erp-dark">
+
+    <div class="theme-switcher">
+        <label for="erp-default">Corporate</label>
+        <label for="erp-modern">Modern</label>
+        <label for="erp-dark">Dark</label>
+    </div>
+    <div class="container">
+        <!-- Page Header -->
+        <div class="header">
+            <div class="system-title">
+                <i class="fas fa-warehouse"></i>
+                <span>ERP Inventory Management System - Product Storage</span>
+            </div>
+            <div class="user-info">
+                <span><i class="fas fa-user"></i> Administrator</span>
+                <a href="index.html" class="btn-logout">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header d-flex justify-content-between align-items-center">
+                    <h1><i class="fas fa-box"></i> Product Registration</h1>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title">Product Information</h3>
+                    <form>
+                        <!-- Required: Product Name -->
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <label class="form-label required">Product Name</label>
+                                <input type="text" class="form-control" placeholder="Enter product name" required>
+                            </div>
+                        </div>
+
+                        <!-- SKU Field -->
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <label class="form-label required">Product Code (SKU)</label>
+                                <div class="sku-container">
+                                    <input type="text" class="form-control" id="sku" placeholder="Enter product code"
+                                        required>
+                                    <button type="button" class="btn btn-outline-primary" onclick="generateNewSKU()">
+                                        <i class="fas fa-sync-alt"></i> Generate
+                                    </button>
+                                </div>
+                                <div class="form-text">Product code must be unique</div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" rows="2" placeholder="Product description"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label">Price</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" step="0.01" class="form-control" placeholder="0.00">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Brand</label>
+                                <input type="text" class="form-control" placeholder="Brand name">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label">Unit</label>
+                                <input type="text" class="form-control" placeholder="e.g., piece, kg, box">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Supplier</label>
+                                <input type="text" class="form-control" placeholder="Supplier name">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label">Category</label>
+                                <select class="form-select">
+                                    <option selected>Select category</option>
+                                    <option>Electronics</option>
+                                    <option>Clothing</option>
+                                    <option>Food</option>
+                                    <option>Tools</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label required">Purchase Source</label>
+                                <select class="form-select" required>
+                                    <option value="">Select purchase source</option>
+                                    <option value="Taobao">Taobao</option>
+                                    <option value="JD">JD</option>
+                                    <option value="Xianyu">Xianyu</option>
+                                    <option value="Local">Local</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label">Order ID</label>
+                                <input type="text" class="form-control" placeholder="Order number">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Purchase Link</label>
+                                <input type="text" class="form-control" placeholder="Purchase link URL">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <label class="form-label">Purchase Receipt</label>
+                                <input type="file" class="form-control" accept="image/*">
+                                <div class="form-text">Supports JPG/PNG format, maximum 2MB</div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-12">
+                                <label class="form-label">Custom Attributes</label>
+                                <div id="attributes-container">
+                                    <div class="attribute-row row mb-2">
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" placeholder="Attribute name">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-danger"
+                                                onclick="removeAttribute(this)">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary mt-2" onclick="addAttribute()">
+                                    <i class="fas fa-plus"></i> Add Attribute
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <button type="reset" class="btn btn-secondary me-md-2">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Register Product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Generate new SKU
+            function generateNewSKU() {
+                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                let result = '';
+                for (let i = 0; i < 10; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * characters.length));
+                }
+                document.getElementById('sku').value = result;
+            }
+
+            // Add attribute field
+            function addAttribute() {
+                const container = document.getElementById('attributes-container');
+                const newRow = document.createElement('div');
+                newRow.className = 'attribute-row row mb-2';
+                newRow.innerHTML = `
+                <div class="col-md-10">
+                    <input type="text" class="form-control" placeholder="Attribute name">
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-danger" onclick="removeAttribute(this)">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+                container.appendChild(newRow);
+            }
+
+            // Remove attribute field
+            function removeAttribute(button) {
+                button.closest('.attribute-row').remove();
+            }
+
+            // Theme persistence
+            document.addEventListener('DOMContentLoaded', function () {
+                const savedTheme = localStorage.getItem('erp-theme');
+                if (savedTheme) {
+                    document.getElementById(savedTheme).checked = true;
+                }
+
+                // Save theme selection
+                document.querySelectorAll('input[name="erp-theme"]').forEach(radio => {
+                    radio.addEventListener('change', function () {
+                        localStorage.setItem('erp-theme', this.id);
+                    });
+                });
+
+                // Generate initial SKU
+                generateNewSKU();
+            });
+        </script>
+</body>
+
+</html>

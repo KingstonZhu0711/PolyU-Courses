@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 2: JavaScript Fundamentals</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <div class="assignment-container">
+    <h1 class="main-title">Assignment 2: JavaScript Fundamentals</h1>
+    <h2 class="subtitle">Mastering Prototypes, Closures & Core Concepts 🚀</h2>
+    
+    <div class="important-notice">
+      <h2>⚠️ IMPORTANT: Implementation Guidelines</h2>
+      <p>Complete all TODOs in <code>assignment.js</code>. Each question is INDEPENDENT. You must:</p>
+      <ul>
+        <li><strong>Use prototypes</strong> for creating objects (not ES6 classes)</li>
+        <li><strong>Use closures</strong> to create private state and encapsulation</li>
+        <li><strong>Throw errors</strong> for invalid inputs - do NOT use fallback values</li>
+        <li>Follow the function signatures and requirements exactly</li>
+        <li>Test your code using the interactive demos below</li>
+      </ul>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- DEMONSTRATION VIDEO -->
+    <!-- ============================================ -->
+    <div class="video-section">
+      <h2>📹 Assignment Demonstration</h2>
+      <p>Watch this video to see how the assignment works:</p>
+      <video controls width="100%" style="max-width: 1200px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <source src="screen-capture.webm" type="video/webm">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+    <!-- ============================================ -->
+    <!-- QUESTION 1: CLOSURES - BANK ACCOUNT -->
+    <!-- ============================================ -->
+    <section class="question">
+      <h2 class="question-title">Question 1: Closures - Bank Account System (20 points)</h2>
+      
+      <div class="question-brief">
+        <p><strong>Task:</strong> Create a bank account system using closures to maintain private balance and transaction history.</p>
+        
+        <h3>📖 Background:</h3>
+        <p>In real banking software, account balances must be protected from direct manipulation. Closures provide a way to create truly <strong>private variables</strong> that can only be modified through controlled methods, ensuring data integrity and security.</p>
+        
+        <p><strong>What is a closure?</strong> A closure is created when an inner function "remembers" variables from its outer function's scope, even after the outer function has finished executing. This creates a persistent, private environment.</p>
+        
+        <p><strong>Real-world use:</strong> E-commerce shopping carts, user session management, game player stats, and any system requiring protected state.</p>
+
+        <h3>Requirements:</h3>
+        <ul>
+          <li>Implement <code>createBankAccount(initialBalance, accountHolder)</code> that returns an account object</li>
+          <li>Use closures to keep balance and transaction history private (cannot be accessed directly)</li>
+          <li>Return an object with five methods:
+            <ul>
+              <li><code>deposit(amount)</code> - adds to balance (throw error if amount ≤ 0)</li>
+              <li><code>withdraw(amount)</code> - removes from balance (throw error if insufficient funds or amount ≤ 0)</li>
+              <li><code>getBalance()</code> - returns current balance</li>
+              <li><code>getAccountHolder()</code> - returns account holder name</li>
+              <li><code>getTransactionHistory()</code> - returns array of transaction objects: <code>[{type, amount, balance, timestamp}]</code></li>
+            </ul>
+          </li>
+          <li>Each transaction should record: type ("deposit"/"withdraw"), amount, resulting balance, and timestamp</li>
+          <li>Validate: initialBalance must be ≥ 0, accountHolder must be non-empty string</li>
+        </ul>
+
+        <h3>💡 Implementation Hints:</h3>
+        <ul class="hints">
+          <li><strong>Creating Private Variables:</strong> Declare variables inside the function using <code>let</code> or <code>const</code>. These become private!</li>
+          <li><strong>Structure:</strong> Your function should create private variables for <code>balance</code>, <code>holder</code>, and <code>transactions</code> array, then return an object literal with methods</li>
+          <li><strong>Return Pattern:</strong> <code>return { method1: function() {...}, method2: function() {...} };</code></li>
+          <li><strong>Accessing Private Variables:</strong> Methods can directly use <code>balance</code>, <code>transactions</code>, etc. without <code>this</code></li>
+          <li><strong>Validation:</strong> Always check inputs BEFORE modifying state. Use <code>typeof</code> to check types</li>
+          <li><strong>Number Validation:</strong> Check for <code>typeof x === 'number'</code> AND <code>!isNaN(x)</code> AND <code>isFinite(x)</code></li>
+          <li><strong>String Validation:</strong> Check <code>typeof</code> and use <code>.trim()</code> to remove whitespace before checking if empty</li>
+          <li><strong>Recording Transactions:</strong> Each transaction is an object with properties: <code>type</code>, <code>amount</code>, <code>balance</code>, <code>timestamp</code></li>
+          <li><strong>Timestamps:</strong> Use <code>new Date().toISOString()</code> to get ISO format timestamp</li>
+          <li><strong>Array Copying:</strong> Return a copy of arrays using spread operator: <code>return [...transactions];</code></li>
+          <li><strong>Deposit Logic:</strong> Validate amount > 0, add to balance, record transaction</li>
+          <li><strong>Withdraw Logic:</strong> Validate amount > 0, check sufficient funds, subtract from balance, record transaction</li>
+        </ul>
+
+        <h3>🔑 Key Concepts:</h3>
+        <ul class="hints">
+          <li><strong>Closure Magic:</strong> Variables declared in outer function remain accessible to inner functions</li>
+          <li><strong>Privacy:</strong> No way to access <code>balance</code> directly from outside - only through methods!</li>
+          <li><strong>Encapsulation:</strong> Implementation details are hidden, only the interface is exposed</li>
+          <li><strong>Data Integrity:</strong> All changes must go through validated methods</li>
+          <li><strong>Independence:</strong> Each call to <code>createBankAccount()</code> creates a NEW separate environment</li>
+        </ul>
+
+        <p class="demo-label"><strong>Demo:</strong> Test your bank account system</p>
+        
+        <h3>📋 Expected Functionality:</h3>
+        <ul class="hints">
+          <li><strong>Deposit buttons:</strong> When clicked, should add the specified amount to the account balance and display the new balance. A success message should appear in the console showing the transaction.</li>
+          <li><strong>Withdraw buttons:</strong> When clicked, should subtract the amount from the balance if sufficient funds exist. If insufficient, an error message should appear in red.</li>
+          <li><strong>View History button:</strong> Should display all transactions with type (DEPOSIT/WITHDRAW), amount, resulting balance, and timestamp in the console.</li>
+          <li><strong>Account Independence:</strong> Alice's account and Bob's account should operate completely independently - changes to one don't affect the other.</li>
+          <li><strong>Balance Display:</strong> The cyan-bordered balance display should update in real-time after each successful transaction.</li>
+        </ul>
+      </div>
+
+      <div class="demo-area">
+        <div class="demo-controls">
+          <h3>Account: Alice's Savings</h3>
+          <div class="counter-display" id="account-a-display">Balance: $0.00</div>
+          <button onclick="testQ1('a', 'deposit', 100)">Deposit $100</button>
+          <button onclick="testQ1('a', 'deposit', 50)">Deposit $50</button>
+          <button onclick="testQ1('a', 'withdraw', 30)">Withdraw $30</button>
+          <button onclick="testQ1('a', 'withdraw', 200)">Withdraw $200 (fail)</button>
+          <button onclick="testQ1('a', 'history')">View History</button>
+          
+          <h3>Account: Bob's Checking (Independent)</h3>
+          <div class="counter-display" id="account-b-display">Balance: $0.00</div>
+          <button onclick="testQ1('b', 'deposit', 500)">Deposit $500</button>
+          <button onclick="testQ1('b', 'withdraw', 100)">Withdraw $100</button>
+          <button onclick="testQ1('b', 'history')">View History</button>
+        </div>
+        <div id="q1-output" class="output-console"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- QUESTION 2: PROTOTYPES - SHAPE SYSTEM -->
+    <!-- ============================================ -->
+    <section class="question">
+      <h2 class="question-title">Question 2: Prototypes - Geometric Shape System (25 points)</h2>
+      
+      <div class="question-brief">
+        <p><strong>Task:</strong> Create Circle and Rectangle constructors using prototypes to demonstrate efficient object creation and shared methods.</p>
+        
+        <h3>📖 Background:</h3>
+        <p>JavaScript uses <strong>prototype-based inheritance</strong>, not classical classes. When you add methods to a constructor's prototype, ALL instances share the same function in memory - this is much more efficient than creating new functions for each object.</p>
+        
+        <p><strong>Why this matters:</strong> Imagine creating 10,000 shapes. With prototypes, you create 10,000 objects but only 2 sets of methods. Without prototypes, you'd create 10,000 objects AND 10,000 copies of each method!</p>
+        
+        <p><strong>Real-world use:</strong> Game engines (thousands of entities), data visualization (thousands of data points), UI frameworks (many components).</p>
+
+        <h3>Requirements:</h3>
+        <ul>
+          <li>Create <code>Circle(x, y, radius, color)</code> constructor function with:
+            <ul>
+              <li>Properties: x, y, radius, color</li>
+              <li><code>getArea()</code> - returns π × radius² </li>
+              <li><code>getPerimeter()</code> - returns 2 × π × radius</li>
+              <li><code>draw(ctx)</code> - draws circle on canvas</li>
+              <li><code>contains(px, py)</code> - returns true if point (px,py) is inside circle</li>
+            </ul>
+          </li>
+          <li>Create <code>Rectangle(x, y, width, height, color)</code> constructor function with:
+            <ul>
+              <li>Properties: x, y, width, height, color</li>
+              <li><code>getArea()</code> - returns width × height</li>
+              <li><code>getPerimeter()</code> - returns 2 × (width + height)</li>
+              <li><code>draw(ctx)</code> - draws rectangle on canvas</li>
+              <li><code>contains(px, py)</code> - returns true if point (px,py) is inside rectangle</li>
+            </ul>
+          </li>
+          <li>ALL methods must be on the prototype (NOT inside constructor)</li>
+          <li>Validate all inputs (numbers must be numbers and positive, color must be string)</li>
+        </ul>
+
+        <h3>💡 Key Concepts:</h3>
+        <ul class="hints">
+          <li><strong>Constructor Function:</strong> Use <code>function Circle()</code> NOT <code>class Circle</code></li>
+          <li><strong>this Keyword:</strong> In methods, <code>this</code> refers to the specific instance</li>
+          <li><strong>Prototype Chain:</strong> <code>Circle.prototype.method</code> is shared by ALL Circle instances</li>
+          <li><strong>Memory Efficiency:</strong> 1000 circles = 1000 objects but only 1 set of methods</li>
+          <li><strong>Polymorphism:</strong> Both Circle and Rectangle have getArea() but different implementations</li>
+        </ul>
+
+        <p class="demo-label"><strong>Demo:</strong> Click canvas to create shapes. Click shapes to select them.</p>
+        
+        <h3>📋 Expected Functionality:</h3>
+        <ul class="hints">
+          <li><strong>Add Circle button:</strong> Should create a new circle at a random position with a random color and radius. The circle should appear on the canvas immediately.</li>
+          <li><strong>Add Rectangle button:</strong> Should create a new rectangle at a random position with random dimensions and color. The rectangle should be drawn on the canvas.</li>
+          <li><strong>Add Random Shape button:</strong> Should randomly choose between creating a circle or rectangle.</li>
+          <li><strong>Clear All button:</strong> Should remove all shapes from the canvas, leaving it blank.</li>
+          <li><strong>Canvas Click:</strong> When you click anywhere on the canvas, it should test the <code>contains()</code> method - if you click inside a shape, it should be highlighted (yellow border) and shape info (type, area, perimeter) should display below the buttons.</li>
+          <li><strong>Shape Methods:</strong> Each shape should correctly calculate its area and perimeter. Circles use π, rectangles use standard formulas.</li>
+          <li><strong>Console Output:</strong> Information about clicked shapes should appear in the console area below.</li>
+        </ul>
+      </div>
+
+      <div class="demo-area">
+        <canvas id="q2-canvas" width="800" height="400"></canvas>
+        <div class="demo-controls">
+          <button onclick="testQ2('circle')">Add Circle</button>
+          <button onclick="testQ2('rectangle')">Add Rectangle</button>
+          <button onclick="testQ2('random')">Add Random Shape</button>
+          <button onclick="testQ2('clear')">Clear All</button>
+          <div class="info-display" id="q2-info">Click canvas to test contains() method</div>
+        </div>
+        <div id="q2-output" class="output-console"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- QUESTION 3: ADVANCED CLOSURES - STOPWATCH -->
+    <!-- ============================================ -->
+    <section class="question">
+      <h2 class="question-title">Question 3: Advanced Closures - Stopwatch Timer (25 points)</h2>
+      
+      <div class="question-brief">
+        <p><strong>Task:</strong> Create a stopwatch system using closures to manage timer state and provide lap timing functionality.</p>
+        
+        <h3>📖 Background:</h3>
+        <p>This question combines <strong>closures with timer management</strong>. Real applications constantly need to manage asynchronous operations (timers, intervals, API calls) while maintaining state. Closures are perfect for this!</p>
+        
+        <p><strong>Why closures + timers?</strong> You need to track timer IDs, running state, elapsed time, and laps - all while ensuring this data stays private and consistent.</p>
+        
+        <p><strong>Real-world use:</strong> Progress trackers, countdown timers, auto-save systems, polling mechanisms, animation loops, session timeout managers.</p>
+
+        <h3>Requirements:</h3>
+        <ul>
+          <li>Implement <code>createStopwatch()</code> that returns a stopwatch object</li>
+          <li>Use closures to maintain private state: timer ID, start time, elapsed time, running status, laps array</li>
+          <li>Return an object with six methods:
+            <ul>
+              <li><code>start()</code> - starts the stopwatch (throw error if already running)</li>
+              <li><code>stop()</code> - pauses the stopwatch and returns elapsed time in milliseconds</li>
+              <li><code>reset()</code> - resets to 0 (throw error if currently running)</li>
+              <li><code>lap()</code> - records current time as a lap (throw error if not running)</li>
+              <li><code>getTime()</code> - returns current elapsed time in milliseconds</li>
+              <li><code>getLaps()</code> - returns array of lap times</li>
+            </ul>
+          </li>
+          <li>Time should continue accumulating even after stop/start (not reset to 0)</li>
+          <li>Use <code>setInterval</code> to update time every 10ms</li>
+        </ul>
+
+        <h3>💡 Key Concepts:</h3>
+        <ul class="hints">
+          <li><strong>Closure State:</strong> All variables persist between method calls</li>
+          <li><strong>setInterval:</strong> Runs code repeatedly at specified interval</li>
+          <li><strong>clearInterval:</strong> CRITICAL! Always clean up or you leak memory</li>
+          <li><strong>Date.now():</strong> Returns current timestamp in milliseconds</li>
+          <li><strong>State Machine:</strong> Running/stopped states with validation</li>
+        </ul>
+
+        <p class="demo-label"><strong>Demo:</strong> Test your stopwatch implementation</p>
+        
+        <h3>📋 Expected Functionality:</h3>
+        <ul class="hints">
+          <li><strong>Start button:</strong> Should begin the stopwatch timer, counting up from the current elapsed time. The display should update every 10ms showing MM:SS.mmm format (minutes, seconds, milliseconds).</li>
+          <li><strong>Stop button:</strong> Should pause the stopwatch. The time should freeze but NOT reset - clicking Start again should continue from where it stopped.</li>
+          <li><strong>Reset button:</strong> Should only work when stopped. It resets the elapsed time to 00:00.000 and clears all lap times.</li>
+          <li><strong>Lap button:</strong> Should only work while running. Records the current time as a lap time and displays it in the console below without stopping the timer.</li>
+          <li><strong>Independent Stopwatches:</strong> The demo shows two stopwatches side by side. Each should operate completely independently - starting/stopping one doesn't affect the other.</li>
+          <li><strong>Error Handling:</strong> Should throw errors if you try to start an already-running stopwatch, record a lap while stopped, or reset while running.</li>
+          <li><strong>Console Output:</strong> Lap times should appear in the console area, showing the lap number and time in readable format.</li>
+        </ul>
+      </div>
+
+      <div class="demo-area">
+        <div class="demo-controls">
+          <h3>Stopwatch 1</h3>
+          <div class="counter-display" id="stopwatch-a-display">00:00.000</div>
+          <button onclick="testQ3('a', 'start')">Start</button>
+          <button onclick="testQ3('a', 'stop')">Stop</button>
+          <button onclick="testQ3('a', 'reset')">Reset</button>
+          <button onclick="testQ3('a', 'lap')">Lap</button>
+          <button onclick="testQ3('a', 'laps')">Show Laps</button>
+          
+          <h3>Stopwatch 2 (Independent)</h3>
+          <div class="counter-display" id="stopwatch-b-display">00:00.000</div>
+          <button onclick="testQ3('b', 'start')">Start</button>
+          <button onclick="testQ3('b', 'stop')">Stop</button>
+          <button onclick="testQ3('b', 'reset')">Reset</button>
+          <button onclick="testQ3('b', 'lap')">Lap</button>
+        </div>
+        <div id="q3-output" class="output-console"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- QUESTION 4: COMPREHENSIVE - BOUNCING BALLS -->
+    <!-- ============================================ -->
+    <section class="question">
+      <h2 class="question-title">Question 4: Comprehensive Physics Simulation (30 points)</h2>
+      
+      <div class="question-brief">
+        <p><strong>Task:</strong> Build a complete bouncing ball physics simulation combining prototypes, closures, animation, and collision detection.</p>
+        
+        <h3>📖 Background:</h3>
+        <p>This capstone question integrates <strong>all concepts</strong>: prototypes for efficient Ball objects, closures for private animation state, timer management with requestAnimationFrame, and event handling for interaction.</p>
+        
+        <p><strong>Why this matters:</strong> Game engines, physics simulations, data visualizations, and interactive animations all use these exact patterns. This is how real applications are built!</p>
+        
+        <p><strong>Skills demonstrated:</strong> Object-oriented programming, animation loops, state management, collision detection, event handling, and canvas rendering.</p>
+
+        <h3>Requirements:</h3>
+        <ul>
+          <li>Create <code>Ball(x, y, radius, color, vx, vy)</code> constructor using prototypes with:
+            <ul>
+              <li>Properties: x, y, radius, color, vx (velocity x), vy (velocity y)</li>
+              <li><code>update(canvasWidth, canvasHeight)</code> - moves ball, bounces off walls</li>
+              <li><code>draw(ctx)</code> - draws ball on canvas</li>
+              <li><code>collidesWith(otherBall)</code> - returns true if colliding with another ball</li>
+            </ul>
+          </li>
+          <li>Create <code>createBallSimulation(canvas)</code> using closures with:
+            <ul>
+              <li>Private state: balls array, animation ID, gravity setting</li>
+              <li><code>addBall(x, y, radius, color)</code> - adds ball with random velocity</li>
+              <li><code>start()</code> - begins animation loop using requestAnimationFrame</li>
+              <li><code>stop()</code> - stops animation</li>
+              <li><code>clear()</code> - removes all balls</li>
+              <li><code>setGravity(enabled)</code> - toggles gravity on/off</li>
+              <li><code>handleClick(event)</code> - adds ball at click position</li>
+            </ul>
+          </li>
+          <li>Physics: Balls should bounce off walls (reverse velocity) and have optional gravity</li>
+          <li>When balls collide, they should change color to indicate collision</li>
+          <li>Validate all inputs and throw errors for invalid data</li>
+        </ul>
+
+        <h3>💡 Key Concepts:</h3>
+        <ul class="hints">
+          <li><strong>Prototypes:</strong> Ball methods shared across all instances</li>
+          <li><strong>Closures:</strong> Private balls array and animation state</li>
+          <li><strong>requestAnimationFrame:</strong> Smooth 60 FPS animation</li>
+          <li><strong>Physics:</strong> Velocity, gravity, collision detection, energy loss</li>
+          <li><strong>State Management:</strong> Private state with public interface</li>
+        </ul>
+
+        <p class="demo-label"><strong>Demo:</strong> Click canvas to add balls! Toggle gravity to see effects! 🎾</p>
+        
+        <h3>📋 Expected Functionality:</h3>
+        <ul class="hints">
+          <li><strong>Start Animation button:</strong> Should begin the animation loop, making all balls move smoothly at 60 FPS using <code>requestAnimationFrame</code>.</li>
+          <li><strong>Stop Animation button:</strong> Should pause all ball movement by canceling the animation frame. Balls should freeze in place.</li>
+          <li><strong>Add Ball button:</strong> Should create a new ball at a random position with random velocity, radius, and color. The ball should immediately appear and start moving if animation is running.</li>
+          <li><strong>Add 10 Balls button:</strong> Should add 10 random balls at once to create a more chaotic scene.</li>
+          <li><strong>Toggle Gravity button:</strong> Should enable/disable gravity. When enabled, balls should accelerate downward (increasing vertical velocity) and bounce more realistically on the bottom.</li>
+          <li><strong>Clear All button:</strong> Should remove all balls from the canvas and reset the scene.</li>
+          <li><strong>Canvas Click:</strong> When you click on the canvas, a ball should be created at that exact click position with random velocity and color.</li>
+          <li><strong>Ball Physics:</strong> Balls should bounce off all four walls. When they collide with each other, both balls should turn red temporarily to indicate the collision.</li>
+          <li><strong>Console Output:</strong> The ball count and collision events should be logged to the console area below.</li>
+        </ul>
+      </div>
+
+      <div class="demo-area demo-fireworks">
+        <canvas id="q4-canvas" width="800" height="500"></canvas>
+        <div class="demo-controls">
+          <button onclick="testQ4('start')">Start Animation</button>
+          <button onclick="testQ4('stop')">Stop Animation</button>
+          <button onclick="testQ4('gravity')">Toggle Gravity</button>
+          <button onclick="testQ4('addRandom')">Add 5 Random Balls</button>
+          <button onclick="testQ4('clear')">Clear All</button>
+          <div class="info-display" id="q4-info">Click canvas to add balls! Red = collision detected</div>
+        </div>
+        <div id="q4-output" class="output-console"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- QUESTION 5: FIREWORKS ANIMATION -->
+    <!-- ============================================ -->
+    <section class="question">
+      <h2 class="question-title">Question 5: Interactive Fireworks Show (30 points) 🎆</h2>
+      
+      <div class="question-brief">
+        <p><strong>Task:</strong> Build a complete fireworks animation system with particle explosions, combining prototypes, closures, and canvas animation.</p>
+        
+        <h3>📖 Background:</h3>
+        <p>This capstone question brings together <strong>all the concepts</strong> you've learned: prototypes for efficient Particle objects, closures for private animation state, timer management with requestAnimationFrame, and event handling for user interaction.</p>
+        
+        <p><strong>Real-world application:</strong> Particle systems power game effects (explosions, fire, smoke), celebration animations, data visualizations, and interactive graphics. This is how professional animations are built!</p>
+        
+        <p><strong>What makes this special:</strong> You'll create TWO constructor functions (Particle and Firework) that work together, plus a closure-based controller that manages the entire show. This demonstrates composition and system design.</p>
+
+        <h3>Requirements:</h3>
+        
+        <h4>Part A: Particle Constructor (similar to Q2, but with physics)</h4>
+        <ul>
+          <li>Create <code>Particle(x, y, color, size)</code> constructor using prototypes with:
+            <ul>
+              <li>Properties: x, y, color, size, vx (random -2 to 2), vy (random -2 to 2), life (1.0)</li>
+              <li><code>update()</code> - updates position (x += vx, y += vy), applies gravity (vy += 0.1), decreases life by 0.01</li>
+              <li><code>draw(ctx)</code> - draws particle with transparency based on life (ctx.globalAlpha = life)</li>
+              <li><code>isDead()</code> - returns true if life <= 0</li>
+            </ul>
+          </li>
+          <li>Validate: x, y, size must be numbers; color must be string</li>
+        </ul>
+
+        <h4>Part B: Firework Constructor</h4>
+        <ul>
+          <li>Create <code>Firework(x, y, targetY, color)</code> constructor using prototypes with:
+            <ul>
+              <li>Properties: x, y, targetY, color, exploded (false), particles (empty array)</li>
+              <li><code>update()</code> - moves upward (y -= 3), explodes at targetY creating 30-50 Particles</li>
+              <li><code>draw(ctx)</code> - draws rocket (if not exploded) or all particles (if exploded)</li>
+              <li><code>isFinished()</code> - returns true when exploded and all particles are dead</li>
+            </ul>
+          </li>
+          <li>Validate: x, y, targetY must be numbers; color must be string</li>
+        </ul>
+
+        <h4>Part C: Fireworks Show Controller (Closures)</h4>
+        <ul>
+          <li>Create <code>createFireworksShow(canvas)</code> using closures with:
+            <ul>
+              <li>Private state: fireworks array, animationId, ctx</li>
+              <li><code>addFirework(x, color)</code> - creates firework at bottom, targeting 20-40% up canvas</li>
+              <li><code>start()</code> - begins animation loop with requestAnimationFrame</li>
+              <li><code>stop()</code> - stops animation and clears canvas</li>
+              <li><code>handleClick(event)</code> - creates firework at click position with random color</li>
+            </ul>
+          </li>
+          <li>Animation loop: clear canvas, update/draw all fireworks, remove finished ones</li>
+        </ul>
+
+        <h3>💡 Key Concepts:</h3>
+        <ul class="hints">
+          <li><strong>Composition:</strong> Firework contains Particles - demonstrates object composition</li>
+          <li><strong>Two Prototypes:</strong> Both Particle and Firework use prototype methods</li>
+          <li><strong>Lifecycle:</strong> Firework: launch → reach target → explode → particles die → cleanup</li>
+          <li><strong>Closures:</strong> Private fireworks array and animationId managed through closure</li>
+          <li><strong>Animation Loop:</strong> requestAnimationFrame for smooth 60 FPS animation</li>
+          <li><strong>Memory Management:</strong> Remove finished fireworks to prevent memory leaks</li>
+        </ul>
+
+        <p class="demo-label"><strong>Demo:</strong> Click canvas to launch fireworks! 🎆✨</p>
+        
+        <h3>📋 Expected Functionality:</h3>
+        <ul class="hints">
+          <li><strong>Start Animation button:</strong> Should begin the animation loop, making fireworks launch, explode, and fade smoothly at 60 FPS using <code>requestAnimationFrame</code>.</li>
+          <li><strong>Stop Animation button:</strong> Should pause all animations by canceling the animation frame and clear the canvas completely.</li>
+          <li><strong>Auto Launch button:</strong> Should automatically launch a random firework every 500ms at a random horizontal position with a random color from the palette.</li>
+          <li><strong>Canvas Click:</strong> When you click anywhere on the canvas, a firework should launch from the bottom at that X position, shoot upward, explode at about 20-40% of canvas height, and create 30-50 colorful particles.</li>
+          <li><strong>Firework Lifecycle:</strong> Each firework should: (1) Launch from bottom as a small dot, (2) Move upward rapidly, (3) Explode at target height creating particles, (4) Particles spread in all directions with random velocities, (5) Particles fall with gravity while fading out, (6) Completely disappear when life reaches 0.</li>
+          <li><strong>Visual Effects:</strong> Canvas should have a trail/fade effect (not completely cleared each frame) to create beautiful light streaks. Particles should become more transparent as they age.</li>
+          <li><strong>Memory Management:</strong> Finished fireworks (exploded with all particles dead) should be automatically removed from the array to prevent memory leaks.</li>
+          <li><strong>Multiple Fireworks:</strong> Multiple fireworks can exist simultaneously, each with independent lifecycles and particle systems.</li>
+          <li><strong>Color Palette:</strong> Fireworks should use vibrant colors like red, cyan, yellow, lime, magenta, and orange.</li>
+        </ul>
+      </div>
+
+      <div class="demo-area demo-fireworks">
+        <canvas id="q5-canvas" width="800" height="500"></canvas>
+        <div class="demo-controls">
+          <button onclick="testQ5('start')">Start Animation</button>
+          <button onclick="testQ5('stop')">Stop Animation</button>
+          <button onclick="testQ5('auto')">Auto Launch</button>
+          <button onclick="testQ5('clear')">Clear All</button>
+          <div class="info-display" id="q5-info">Click canvas anywhere to launch a firework!</div>
+        </div>
+        <div id="q5-output" class="output-console"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- GRADING & SUBMISSION -->
+    <!-- ============================================ -->
+    <section class="grading">
+      <h2>Grading Criteria</h2>
+      <table>
+        <tr>
+          <th>Question</th>
+          <th>Criteria</th>
+          <th>Points</th>
+        </tr>
+        <tr>
+          <td rowspan="3">Q1 (20 pts)</td>
+          <td>Closure implementation & private state</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Method correctness & transaction logging</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Error handling & validation</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td rowspan="3">Q2 (25 pts)</td>
+          <td>Constructor functions & prototype methods</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>Geometry calculations & drawing</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>Input validation & error handling</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td rowspan="3">Q3 (25 pts)</td>
+          <td>Closure-based timer with private state</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Timer management (start/stop/reset/lap)</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Validation & error handling</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td rowspan="4">Q4 (30 pts)</td>
+          <td>Ball constructor with prototypes</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Simulation with closures & animation</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Physics & collision detection</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Code quality & error handling</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td rowspan="4">Q5 (30 pts)</td>
+          <td>Particle & Firework constructors with prototypes</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>FireworksShow with closures & animation</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Particle system & explosion logic</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Code quality & error handling</td>
+          <td>3</td>
+        </tr>
+      </table>
+      
+      <h3>Submission Instructions</h3>
+      <ul>
+        <li>Complete all TODOs in <code>assignment.js</code></li>
+        <li><strong>Each question is independent</strong> - work on them in any order</li>
+        <li>Do NOT modify <code>index.html</code> or <code>test-framework.js</code></li>
+        <li>Test thoroughly using the interactive demos</li>
+        <li>Ensure all error handling throws appropriate errors (no silent failures!)</li>
+        <li><strong>Submit ALL code files:</strong>
+          <ul>
+            <li><code>assignment.js</code> - Your completed implementation</li>
+            <li><code>index.html</code> - The assignment page (do not modify)</li>
+            <li><code>styles.css</code> - The stylesheet (do not modify)</li>
+            <li><code>test-framework.js</code> - The test framework (do not modify)</li>
+          </ul>
+        </li>
+        <li>Make sure all files are in the same directory and the assignment works when opened in a browser</li>
+      </ul>
+
+      <h3>Key Concepts Being Tested</h3>
+      <ul>
+        <li><strong>Q1 Closures:</strong> Private variables, data protection, transaction logging</li>
+        <li><strong>Q2 Prototypes:</strong> Constructor functions, prototype chain, method sharing, polymorphism</li>
+        <li><strong>Q3 Timers & Closures:</strong> setInterval, state machines, timer cleanup</li>
+        <li><strong>Q4 Integration:</strong> Combining prototypes + closures + animation + physics</li>
+        <li><strong>Q5 Advanced Composition:</strong> Multiple prototypes (Particle & Firework), object composition, closures for animation control, particle systems, memory management</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- Load JavaScript -->
+  <script src="assignment.js"></script>  
+  <script src="test-framework.js"></script>
+
+</body>
+</html>
+

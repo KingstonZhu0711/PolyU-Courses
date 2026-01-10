@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>View All Data - Product Management System</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/layui/2.8.18/css/layui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.staticfile.org/layui/2.8.18/layui.js"></script>
+</head>
+
+<body>
+    <!-- Theme Switcher -->
+    <input type="radio" name="erp-theme" id="erp-default" checked>
+    <input type="radio" name="erp-theme" id="erp-modern">
+    <input type="radio" name="erp-theme" id="erp-dark">
+    
+    <div class="theme-switcher">
+        <label for="erp-default">Default</label>
+        <label for="erp-modern">Modern</label>
+        <label for="erp-dark">Dark</label>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-row">
+                <h1 class="system-title"><i class="fas fa-boxes"></i> Product Data Management</h1>
+                <div class="user-info">
+                    <span><i class="fas fa-user"></i> Administrator</span>
+                </div>
+            </div>
+            <a href="index.html" class="btn-logout"><i class="fas fa-home"></i> Back to Home</a>
+        </div>
+
+        <!-- Products Data -->
+        <div class="section-title">
+            <i class="fas fa-cube"></i> Products Data
+        </div>
+
+        <div class="data-card collapsed-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <div class="summary-info">
+                    <span>ID: 1</span>
+                    <span>Sample Product 1 (SKU001)</span>
+                    <span class="stock-positive">Stock: 50</span>
+                </div>
+                <i class="fas fa-chevron-right expand-icon"></i>
+            </div>
+            <div class="card-body">
+                <div class="data-item">
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Product SKU:</div>
+                            <div class="data-value">SKU001</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Brand:</div>
+                            <div class="data-value">Brand A</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Unit:</div>
+                            <div class="data-value">Piece</div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Supplier:</div>
+                            <div class="data-value">Supplier X</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Category:</div>
+                            <div class="data-value">Electronics</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Price:</div>
+                            <div class="data-value">¥199.00</div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Purchase Source:</div>
+                            <div class="data-value">Taobao</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Order ID:</div>
+                            <div class="data-value">TB123456789</div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Link URL:</div>
+                            <div class="data-value">
+                                <a href="https://example.com" target="_blank">View Link</a>
+                            </div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Purchase Receipt:</div>
+                            <div class="data-value">
+                                <img src="https://via.placeholder.com/100" class="image-preview" onclick="showImage('https://via.placeholder.com/100')">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Description:</div>
+                            <div class="data-value">This is a sample product description for demonstration purposes.</div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Custom Attributes:</div>
+                            <div class="data-value">
+                                <span class="badge">Color: Red</span>
+                                <span class="badge">Size: Large</span>
+                                <span class="badge">Weight: 1kg</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Stock:</div>
+                            <div class="data-value">
+                                <span style="font-weight:bold; color: var(--erp-success)">50</span>
+                            </div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Created At:</div>
+                            <div class="data-value">2024-01-15 10:30:00</div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <a href="edit_product.html?id=1" class="layui-btn layui-btn-normal layui-btn-sm">
+                            <i class="fas fa-edit"></i> Edit Product
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inbound Records -->
+        <div class="section-title">
+            <i class="fas fa-arrow-down"></i> Inbound Records
+        </div>
+
+        <div class="data-card collapsed-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <div class="summary-info">
+                    <span>ID: 101</span>
+                    <span>Sample Product 1 (SKU001)</span>
+                </div>
+                <i class="fas fa-chevron-right expand-icon"></i>
+            </div>
+            <div class="card-body">
+                <div class="data-item">
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Quantity:</div>
+                            <div class="data-value">25</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Location:</div>
+                            <div class="data-value">Area A, Row 3, Shelf 2</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Operator:</div>
+                            <div class="data-value">John Doe</div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Inbound Time:</div>
+                            <div class="data-value">2024-01-20 14:30:00</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Batch No:</div>
+                            <div class="data-value">BATCH001</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Warehouse:</div>
+                            <div class="data-value">Main Warehouse</div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Expiry Date:</div>
+                            <div class="data-value">2025-12-31</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Production Date:</div>
+                            <div class="data-value">2024-01-01</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Cost Price:</div>
+                            <div class="data-value">¥150.00</div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Purchase Channel:</div>
+                            <div class="data-value">Taobao</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Order Number:</div>
+                            <div class="data-value">TB123456789</div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Purchase Link:</div>
+                            <div class="data-value">
+                                <a href="https://example.com" target="_blank">View Link</a>
+                            </div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Purchase Receipt:</div>
+                            <div class="data-value">
+                                <img src="https://via.placeholder.com/100" class="image-preview" onclick="showImage('https://via.placeholder.com/100')">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Remarks:</div>
+                            <div class="data-value">Initial stock purchase for new product</div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <a href="edit_storage.html?id=101" class="layui-btn layui-btn-normal layui-btn-sm">
+                            <i class="fas fa-edit"></i> Edit Record
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Outbound Records -->
+        <div class="section-title">
+            <i class="fas fa-arrow-up"></i> Outbound Records
+        </div>
+
+        <div class="data-card collapsed-card">
+            <div class="card-header" onclick="toggleCard(this)">
+                <div class="summary-info">
+                    <span>ID: 201</span>
+                    <span>Sample Product 1 (SKU001)</span>
+                    <span class="damage-badge">Damaged</span>
+                </div>
+                <i class="fas fa-chevron-right expand-icon"></i>
+            </div>
+            <div class="card-body">
+                <div class="data-item">
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Quantity:</div>
+                            <div class="data-value">5</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Location:</div>
+                            <div class="data-value">Area A, Row 3, Shelf 2</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Operator:</div>
+                            <div class="data-value">Jane Smith</div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Outbound Time:</div>
+                            <div class="data-value">2024-01-25 09:15:00</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Batch No:</div>
+                            <div class="data-value">BATCH001</div>
+                        </div>
+                        <div class="data-col">
+                            <div class="data-label">Warehouse:</div>
+                            <div class="data-value">Main Warehouse</div>
+                        </div>
+                    </div>
+
+                    <div class="data-row">
+                        <div class="data-col">
+                            <div class="data-label">Remarks:</div>
+                            <div class="data-value">Damaged during handling</div>
+                        </div>
+                    </div>
+
+                    <!-- Damage Information -->
+                    <div class="damage-info">
+                        <div class="damage-label">Damage Information</div>
+                        <div class="data-row">
+                            <div class="data-col">
+                                <div class="data-label">Damage Reason:</div>
+                                <div class="data-value">Product damaged during warehouse handling - cracked casing</div>
+                            </div>
+                        </div>
+
+                        <div class="data-row">
+                            <div class="data-col">
+                                <div class="data-label">Damage Photos:</div>
+                                <div class="data-value">
+                                    <img src="https://via.placeholder.com/100" class="image-preview" onclick="showImage('https://via.placeholder.com/100')">
+                                    <img src="https://via.placeholder.com/100" class="image-preview" onclick="showImage('https://via.placeholder.com/100')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <a href="edit_out.html?id=201" class="layui-btn layui-btn-normal layui-btn-sm">
+                            <i class="fas fa-edit"></i> Edit Record
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center;">
+            <a href="index.html" class="layui-btn layui-btn-primary back-btn">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Theme persistence
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved theme
+            const savedTheme = localStorage.getItem('erp-theme') || 'erp-default';
+            document.getElementById(savedTheme).checked = true;
+            
+            // Save theme selection
+            document.querySelectorAll('input[name="erp-theme"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    localStorage.setItem('erp-theme', this.id);
+                });
+            });
+            
+            // Initialize all cards as collapsed
+            const cards = document.querySelectorAll('.data-card');
+            cards.forEach(card => {
+                card.classList.add('collapsed-card');
+            });
+        });
+
+        function toggleCard(header) {
+            const card = header.closest('.data-card');
+            const body = card.querySelector('.card-body');
+            const icon = header.querySelector('.expand-icon');
+
+            if (card.classList.contains('collapsed-card')) {
+                // Expand card
+                card.classList.remove('collapsed-card');
+                card.classList.add('expanded-card');
+                body.style.display = 'block';
+                icon.style.transform = 'rotate(90deg)';
+            } else {
+                // Collapse card
+                card.classList.remove('expanded-card');
+                card.classList.add('collapsed-card');
+                body.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function showImage(src) {
+            // Using layui layer for image preview
+            layui.use('layer', function() {
+                var layer = layui.layer;
+                layer.open({
+                    type: 'image',
+                    title: false,
+                    closeBtn: 0,
+                    area: ['80%', '80%'],
+                    skin: 'layui-layer-nobg',
+                    shadeClose: true,
+                    content: src
+                });
+            });
+        }
+    </script>
+</body>
+</html>

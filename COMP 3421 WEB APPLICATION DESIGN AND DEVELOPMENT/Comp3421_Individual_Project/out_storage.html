@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Out Storage - ERP System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Theme Switcher -->
+    <input type="radio" name="erp-theme" id="erp-default" checked>
+    <input type="radio" name="erp-theme" id="erp-modern">
+    <input type="radio" name="erp-theme" id="erp-dark">
+
+    <div class="theme-switcher">
+        <label for="erp-default">Corporate</label>
+        <label for="erp-modern">Modern</label>
+        <label for="erp-dark">Dark</label>
+    </div>
+    
+    <div class="container">
+        <!-- Page Header -->
+        <div class="header">
+            <div class="system-title">
+                <i class="fas fa-warehouse"></i>
+                <span>ERP Inventory Management System - Product Out Storage</span>
+            </div>
+            <div class="user-info">
+                <span><i class="fas fa-user"></i> Administrator</span>
+                <a href="index.html" class="btn-logout">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </div>
+
+        <!-- System Information -->
+        <div class="system-info">
+            <i class="fas fa-info-circle"></i> Current Time: <span id="current-time">2023-11-15 14:30:22</span> | 
+            Total Products: <strong>1,247</strong> | Today's Out Storage: <strong>12</strong>
+        </div>
+
+        <!-- Product Out Storage Form -->
+        <div class="form-container">
+            <div class="form-header">
+                <h1><i class="fas fa-boxes"></i> Product Out Storage Registration</h1>
+            </div>
+
+            <form id="outStorageForm" enctype="multipart/form-data">
+                <!-- Mode Selection -->
+                <div class="single-mode-toggle">
+                    <input type="checkbox" id="singleModeToggle">
+                    <label for="singleModeToggle" class="toggle-label">Single Product Mode</label>
+                </div>
+
+                <!-- Product Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title"><i class="fas fa-box"></i> Product Information</h2>
+
+                    <div class="form-group">
+                        <label class="form-label required">Select Product</label>
+                        <select name="product_id" id="product_id" class="form-control" required>
+                            <option value="">-- Please select product to take out --</option>
+                            <option value="1">Laptop (SKU: NB001)</option>
+                            <option value="2">Wireless Mouse (SKU: MOUSE002)</option>
+                            <option value="3">Mechanical Keyboard (SKU: KB003)</option>
+                            <option value="4">Monitor (SKU: MON004)</option>
+                            <option value="5">USB-C Cable (SKU: CABLE005)</option>
+                        </select>
+                    </div>
+
+                    <div class="info-container">
+                        <div class="product-info-row">
+                            <div class="product-info-group">
+                                <div class="info-label">Brand</div>
+                                <div class="info-value" id="product-brand">-</div>
+                            </div>
+                            <div class="product-info-group">
+                                <div class="info-label">Supplier</div>
+                                <div class="info-value" id="product-supplier">-</div>
+                            </div>
+                            <div class="product-info-group">
+                                <div class="info-label">Unit</div>
+                                <div class="info-value" id="product-unit">-</div>
+                            </div>
+                            <div class="product-info-group">
+                                <div class="info-label">Product Category</div>
+                                <div class="info-value" id="product-category">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="attr_area"></div>
+                </div>
+
+                <!-- Product Identification Section -->
+                <div class="form-section">
+                    <h2 class="section-title"><i class="fas fa-barcode"></i> Product Identification</h2>
+
+                    <div class="stats-card">
+                        <div class="stats-number" id="productCount">0</div>
+                        <div class="stats-label">Number of Products</div>
+                    </div>
+
+                    <div class="scanner-status status-info">
+                        <i class="fas fa-info-circle"></i> Manual product identification mode
+                    </div>
+
+                    <div class="input-with-btn">
+                        <input type="text" id="productCodeInput" class="form-control" 
+                               placeholder="Enter product identification code">
+                        <button type="button" class="btn-erp" id="addProductBtn">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </div>
+
+                    <div class="scanned-container">
+                        <div class="scanned-header">
+                            <span><i class="fas fa-list"></i> Product List</span>
+                            <span class="scanned-count">Total: <span id="productTotal">0</span></span>
+                        </div>
+                        <div class="scanned-items" id="productItems">
+                            <div class="no-items">
+                                <i class="fas fa-box-open"></i>
+                                <p>No products added yet</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="scanned_products" id="scannedProducts">
+                </div>
+
+                <!-- Out Storage Details -->
+                <div class="form-section">
+                    <h2 class="section-title"><i class="fas fa-file-alt"></i> Out Storage Details</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label required">Out Storage Quantity</label>
+                            <input type="number" name="quantity" id="productQuantity" class="form-control" 
+                                   required min="1" placeholder="Enter out storage quantity">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Storage Location</label>
+                            <input type="text" name="location" class="form-control" 
+                                   placeholder="e.g., Area A, Row 3, Shelf 2">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Batch Number</label>
+                            <input type="text" name="batch_no" class="form-control" 
+                                   placeholder="Enter product batch number">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Warehouse Name</label>
+                            <input type="text" name="warehouse" class="form-control" 
+                                   placeholder="Enter warehouse name">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Operation Information -->
+                <div class="form-section">
+                    <h2 class="section-title"><i class="fas fa-user-cog"></i> Operation Information</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Operator</label>
+                            <input type="text" name="out_by" class="form-control" 
+                                   value="Administrator" placeholder="Enter operator name">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Remarks</label>
+                            <textarea name="remarks" class="form-control" rows="3" 
+                                      placeholder="Enter out storage remarks"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Damage Information -->
+                <div class="single-mode-toggle">
+                    <input type="checkbox" id="isDamagedToggle" name="is_damaged" value="1">
+                    <label for="isDamagedToggle" class="toggle-label">Mark as Damage Out Storage</label>
+                </div>
+
+                <div class="form-section" id="damageSection" style="display:none;">
+                    <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> Damage Information</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Damage Reason</label>
+                        <textarea name="damage_reason" class="form-control" rows="3" 
+                                  placeholder="Please provide detailed damage reason"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Upload Damage Photos (Max 5)</label>
+                        <input type="file" name="damage_images[]" multiple accept="image/*" class="form-control">
+                        <small class="form-text text-muted">Please upload clear photos showing the damaged parts</small>
+                    </div>
+                </div>
+
+                <!-- Form Action Buttons -->
+                <div class="form-actions">
+                    <button type="button" class="btn-submit btn-success" id="submitBtn">
+                        <i class="fas fa-check"></i> Submit Out Storage
+                    </button>
+                    <button type="reset" class="btn-submit btn-warning">
+                        <i class="fas fa-redo-alt"></i> Reset Form
+                    </button>
+                    <a href="index.html" class="btn-submit btn-primary">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Product data mapping
+        const productMap = {
+            1: {
+                brand: "Dell",
+                supplier: "Dell Official",
+                unit: "pcs",
+                category: "Electronics",
+                name: "Laptop",
+                sku: "NB001"
+            },
+            2: {
+                brand: "Logitech",
+                supplier: "Logitech Official",
+                unit: "pcs",
+                category: "Electronics",
+                name: "Wireless Mouse",
+                sku: "MOUSE002"
+            },
+            3: {
+                brand: "Corsair",
+                supplier: "Corsair Official",
+                unit: "pcs",
+                category: "Electronics",
+                name: "Mechanical Keyboard",
+                sku: "KB003"
+            },
+            4: {
+                brand: "Samsung",
+                supplier: "Samsung Official",
+                unit: "pcs",
+                category: "Electronics",
+                name: "Monitor",
+                sku: "MON004"
+            },
+            5: {
+                brand: "Anker",
+                supplier: "Anker Official",
+                unit: "pcs",
+                category: "Electronics",
+                name: "USB-C Cable",
+                sku: "CABLE005"
+            }
+        };
+
+        // Product attributes
+        const productAttrs = {
+            1: [
+                {id: 1, name: "Color"},
+                {id: 2, name: "Memory"},
+                {id: 3, name: "Storage"}
+            ],
+            2: [
+                {id: 4, name: "Color"},
+                {id: 5, name: "Connection Type"}
+            ],
+            3: [
+                {id: 6, name: "Color"},
+                {id: 7, name: "Switch Type"}
+            ],
+            4: [
+                {id: 8, name: "Size"},
+                {id: 9, name: "Resolution"}
+            ],
+            5: [
+                {id: 10, name: "Length"},
+                {id: 11, name: "Color"}
+            ]
+        };
+
+        // Simulate current time update
+        function updateCurrentTime() {
+            const now = new Date();
+            const timeString = now.getFullYear() + '-' + 
+                             String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                             String(now.getDate()).padStart(2, '0') + ' ' + 
+                             String(now.getHours()).padStart(2, '0') + ':' + 
+                             String(now.getMinutes()).padStart(2, '0') + ':' + 
+                             String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('current-time').textContent = timeString;
+        }
+        
+        // Initial update
+        updateCurrentTime();
+        
+        // Update every second
+        setInterval(updateCurrentTime, 1000);
+        
+        // Theme switching functionality
+        document.querySelectorAll('input[name="erp-theme"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Theme switching logic is already implemented in CSS via :checked selector
+                console.log('Theme switched to:', this.id);
+            });
+        });
+
+        // Product information update based on selection
+        function updateProductInfo(pid) {
+            const brandField = document.getElementById('product-brand');
+            const supplierField = document.getElementById('product-supplier');
+            const unitField = document.getElementById('product-unit');
+            const categoryField = document.getElementById('product-category');
+            
+            if (productMap[pid]) {
+                brandField.textContent = productMap[pid].brand || 'Not set';
+                supplierField.textContent = productMap[pid].supplier || 'Not set';
+                unitField.textContent = productMap[pid].unit || 'Not set';
+                categoryField.textContent = productMap[pid].category || 'Not set';
+            } else {
+                brandField.textContent = '-';
+                supplierField.textContent = '-';
+                unitField.textContent = '-';
+                categoryField.textContent = '-';
+            }
+        }
+
+        // Show product attributes
+        function showAttrs() {
+            const pid = document.getElementById('product_id').value;
+            const area = document.getElementById('attr_area');
+            area.innerHTML = '';
+
+            // Update product information
+            updateProductInfo(pid);
+
+            if (productAttrs[pid] && productAttrs[pid].length > 0) {
+                let html = '<div class="form-group"><label class="form-label">Product Attributes</label><div class="form-row">';
+
+                productAttrs[pid].forEach(function(attr) {
+                    html += `
+                    <div class="form-group">
+                        <label class="form-label">${attr.name}</label>
+                        <input type="text" name="attr_values[${attr.id}]" class="form-control">
+                    </div>`;
+                });
+
+                html += '</div></div>';
+                area.innerHTML = html;
+            }
+        }
+
+        // Product selection change event
+        document.getElementById('product_id').addEventListener('change', function() {
+            const pid = this.value;
+            updateProductInfo(pid);
+            showAttrs();
+            clearProductList();
+        });
+
+        // Product identification functionality
+        const productCodeInput = document.getElementById('productCodeInput');
+        const addProductBtn = document.getElementById('addProductBtn');
+        const productItems = document.getElementById('productItems');
+        const productCount = document.getElementById('productCount');
+        const productTotal = document.getElementById('productTotal');
+        const quantityInput = document.getElementById('productQuantity');
+        const scannedProducts = document.getElementById('scannedProducts');
+        
+        let productCodes = [];
+
+        // Add product button click event
+        addProductBtn.addEventListener('click', function() {
+            const code = productCodeInput.value.trim();
+            if (code) {
+                addProductItem(code);
+                productCodeInput.value = '';
+                productCodeInput.focus();
+            }
+        });
+
+        // Enter key event for product input
+        productCodeInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const code = productCodeInput.value.trim();
+                if (code) {
+                    addProductItem(code);
+                    productCodeInput.value = '';
+                }
+            }
+        });
+
+        // Add product to list
+        function addProductItem(code) {
+            // Check if product code already exists
+            if (productCodes.includes(code)) {
+                alert(`Product code ${code} already added`);
+                return;
+            }
+
+            productCodes.push(code);
+            scannedProducts.value = JSON.stringify(productCodes);
+
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'scanned-item';
+            itemDiv.innerHTML = `
+                <span class="item-code">${code}</span>
+                <span class="item-remove" onclick="removeProductItem('${code}')">
+                    <i class="fas fa-times"></i>
+                </span>
+            `;
+
+            // Hide empty message if it's shown
+            const emptyMessage = productItems.querySelector('.no-items');
+            if (emptyMessage) {
+                emptyMessage.style.display = 'none';
+            }
+
+            productItems.appendChild(itemDiv);
+
+            // Update quantity input and statistics
+            updateQuantityAndStats();
+        }
+
+        // Remove product from list
+        function removeProductItem(code) {
+            productCodes = productCodes.filter(c => c !== code);
+            scannedProducts.value = JSON.stringify(productCodes);
+
+            // Re-render the list
+            productItems.innerHTML = '';
+            productCodes.forEach(c => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'scanned-item';
+                itemDiv.innerHTML = `
+                    <span class="item-code">${c}</span>
+                    <span class="item-remove" onclick="removeProductItem('${c}')">
+                        <i class="fas fa-times"></i>
+                    </span>
+                `;
+                productItems.appendChild(itemDiv);
+            });
+
+            if (productCodes.length === 0) {
+                const emptyMessage = document.createElement('div');
+                emptyMessage.className = 'no-items';
+                emptyMessage.innerHTML = `
+                    <i class="fas fa-box-open"></i>
+                    <p>No products added yet</p>
+                `;
+                productItems.appendChild(emptyMessage);
+            }
+
+            // Update quantity input and statistics
+            updateQuantityAndStats();
+        }
+
+        // Clear product list
+        function clearProductList() {
+            productCodes = [];
+            scannedProducts.value = '';
+            productItems.innerHTML = '';
+            
+            const emptyMessage = document.createElement('div');
+            emptyMessage.className = 'no-items';
+            emptyMessage.innerHTML = `
+                <i class="fas fa-box-open"></i>
+                <p>No products added yet</p>
+            `;
+            productItems.appendChild(emptyMessage);
+            
+            quantityInput.value = '';
+            productCount.textContent = '0';
+            productTotal.textContent = '0';
+        }
+
+        // Update quantity and statistics
+        function updateQuantityAndStats() {
+            quantityInput.value = productCodes.length;
+            productCount.textContent = productCodes.length;
+            productTotal.textContent = productCodes.length;
+        }
+
+        // Damage toggle functionality
+        const damageToggle = document.getElementById('isDamagedToggle');
+        const damageSection = document.getElementById('damageSection');
+
+        damageToggle.addEventListener('change', function() {
+            damageSection.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Form submission
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const productId = document.getElementById('product_id').value;
+            if (!productId) {
+                alert('Please select a product');
+                return;
+            }
+
+            const quantity = parseInt(quantityInput.value);
+            if (quantity <= 0) {
+                alert('Out storage quantity must be greater than 0');
+                return;
+            }
+
+            // Validate damage information if damage is checked
+            if (damageToggle.checked) {
+                const damageReason = document.querySelector('textarea[name="damage_reason"]').value;
+                if (!damageReason.trim()) {
+                    alert('Please provide a damage reason');
+                    return;
+                }
+
+                const damageImages = document.querySelector('input[name="damage_images[]"]');
+                if (damageImages.files.length === 0) {
+                    alert('Please upload at least one damage photo');
+                    return;
+                }
+            }
+
+            // Submit the form
+            document.getElementById('outStorageForm').submit();
+        });
+
+        // Initialize the page
+        clearProductList();
+    </script>
+</body>
+</html>

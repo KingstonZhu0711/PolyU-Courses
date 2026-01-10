@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Storage - ERP System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Theme Switcher -->
+    <input type="radio" name="erp-theme" id="erp-default" checked>
+    <input type="radio" name="erp-theme" id="erp-modern">
+    <input type="radio" name="erp-theme" id="erp-dark">
+
+    <div class="theme-switcher">
+        <label for="erp-default">Corporate</label>
+        <label for="erp-modern">Modern</label>
+        <label for="erp-dark">Dark</label>
+    </div>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="header">
+            <div class="system-title">
+                <i class="fas fa-warehouse"></i>
+                <span>ERP Inventory Management System - Product Storage</span>
+            </div>
+            <div class="user-info">
+                <span><i class="fas fa-user"></i> Administrator</span>
+                <a href="index.html" class="btn-logout">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </div>
+
+        <!-- System Information -->
+        <div class="system-info">
+            <i class="fas fa-info-circle"></i> Current Time: <span id="current-time">2023-11-15 14:30:22</span> | 
+            Total Products: <strong>1,247</strong> | Today's Storage: <strong>23</strong>
+        </div>
+
+        <!-- Product Storage Form -->
+        <div class="form-container">
+            <div class="form-header">
+                <h1><i class="fas fa-boxes"></i> Product Storage Registration</h1>
+
+            </div>
+
+            <form id="storageForm">
+                <!-- Product Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title"><i class="fas fa-box-open"></i> Select Product Information</h2>
+                    
+                    <div class="form-group">
+                        <label class="form-label required">Select Product</label>
+                        <select name="product_id" id="product_id" class="form-control" required>
+                            <option value="">-- Please select product to store --</option>
+                            <option value="1">Laptop (SKU: NB001)</option>
+                            <option value="2">Wireless Mouse (SKU: MOUSE002)</option>
+                            <option value="3">Mechanical Keyboard (SKU: KB003)</option>
+                            <option value="4">Monitor (SKU: MON004)</option>
+                            <option value="5">USB-C Cable (SKU: CABLE005)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Brand</label>
+                            <input type="text" class="form-control" id="product-brand" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Supplier</label>
+                            <input type="text" class="form-control" id="product-supplier" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Unit</label>
+                            <input type="text" class="form-control" id="product-unit" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Product Category</label>
+                            <input type="text" class="form-control" id="product-category" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Product Attributes Area -->
+                    <div id="attr_area"></div>
+                </div>
+
+                <!-- Purchase Information Section -->
+                <div class="form-section">
+                    <h2 class="section-title"><i class="fas fa-shopping-cart"></i> Purchase Information</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Purchase Channel</label>
+                            <select name="purchase_channel" class="form-control">
+                                <option value="">-- Select purchase channel --</option>
+                                <option value="Taobao">Taobao</option>
+                                <option value="JD.com">JD.com</option>
+                                <option value="Xianyu">Xianyu</option>
+                                <option value="Local">Local</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Order Number</label>
+                            <input type="text" name="order_number" class="form-control" placeholder="Enter order number">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Purchase Link</label>
+                        <input type="url" name="purchase_link" class="form-control" 
+                               placeholder="Enter purchase link URL">
+                    </div>
+
+                    <div class="form-group image-upload-container">
+                        <label class="form-label">Purchase Receipt Image</label>
+                        <label for="purchase_image" class="image-upload-label">
+                            <i class="fas fa-upload"></i> Select Image
+                        </label>
+                        <input type="file" name="purchase_image" id="purchase_image" accept="image/*">
+                        <img id="purchase_image_preview" class="purchase-image-preview" src="" alt="Purchase receipt preview">
+                        <a href="#" class="remove-image" id="remove_image_btn">
+                            <i class="fas fa-trash"></i> Remove Image
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Storage Details Section -->
+                <div class="form-section">
+                    <h2 class="section-title"><i class="fas fa-file-alt"></i> Storage Details</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label required">Storage Quantity</label>
+                            <input type="number" name="quantity" id="productQuantity" class="form-control" 
+                                   required min="1" placeholder="Enter quantity">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Storage Location</label>
+                            <input type="text" name="location" class="form-control" 
+                                   placeholder="e.g., Area A, Row 3, Shelf 2">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Batch Number</label>
+                            <input type="text" name="batch_no" class="form-control" 
+                                   placeholder="Enter product batch number">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Warehouse Name</label>
+                            <input type="text" name="warehouse" class="form-control" 
+                                   placeholder="Enter warehouse name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Production Date</label>
+                            <input type="date" name="production_date" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Expiration Date</label>
+                            <input type="date" name="expire_date" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label required">Cost Price (¥)</label>
+                            <input type="number" step="0.01" name="cost_price" class="form-control" 
+                                   placeholder="Enter product unit cost">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label required">Operator</label>
+                            <input type="text" name="stored_by" class="form-control" 
+                                   value="Administrator" placeholder="Enter storage operator">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Remarks</label>
+                        <textarea name="remarks" class="form-control" rows="3" 
+                                  placeholder="Enter storage remarks"></textarea>
+                    </div>
+                </div>
+
+                <!-- Form Action Buttons -->
+                <div class="form-actions">
+                    <button type="button" class="btn-submit btn-success">
+                        <i class="fas fa-check"></i> Submit Storage
+                    </button>
+                    <button type="reset" class="btn-submit btn-warning">
+                        <i class="fas fa-redo-alt"></i> Reset Form
+                    </button>
+                    <a href="index.html" class="btn-submit btn-primary">
+                        <i class="fas fa-home"></i> Back to Home
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simulate current time update
+        function updateCurrentTime() {
+            const now = new Date();
+            const timeString = now.getFullYear() + '-' + 
+                             String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                             String(now.getDate()).padStart(2, '0') + ' ' + 
+                             String(now.getHours()).padStart(2, '0') + ':' + 
+                             String(now.getMinutes()).padStart(2, '0') + ':' + 
+                             String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('current-time').textContent = timeString;
+        }
+        
+        // Initial update
+        updateCurrentTime();
+        
+        // Update every second
+        setInterval(updateCurrentTime, 1000);
+        
+        // Theme switching functionality
+        document.querySelectorAll('input[name="erp-theme"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                // Theme switching logic is already implemented in CSS via :checked selector
+                console.log('Theme switched to:', this.id);
+            });
+        });
+        
+        // Image preview functionality
+        document.getElementById('purchase_image').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('purchase_image_preview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    document.getElementById('remove_image_btn').style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // Remove image functionality
+        document.getElementById('remove_image_btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const input = document.getElementById('purchase_image');
+            input.value = '';
+            document.getElementById('purchase_image_preview').style.display = 'none';
+            this.style.display = 'none';
+        });
+        
+        // Product information update based on selection
+        document.getElementById('product_id').addEventListener('change', function() {
+            // This would typically fetch product details from a database
+            // For demonstration, we'll just update with placeholder values
+            const productId = this.value;
+            const brandField = document.getElementById('product-brand');
+            const supplierField = document.getElementById('product-supplier');
+            const unitField = document.getElementById('product-unit');
+            const categoryField = document.getElementById('product-category');
+            
+            // Reset fields
+            brandField.value = '';
+            supplierField.value = '';
+            unitField.value = '';
+            categoryField.value = '';
+            
+            // Update attributes area
+            const attrArea = document.getElementById('attr_area');
+            attrArea.innerHTML = '';
+            
+            // If a product is selected, show some example attributes
+            if (productId) {
+                brandField.value = 'Example Brand';
+                supplierField.value = 'Example Supplier';
+                unitField.value = 'pcs';
+                categoryField.value = 'Electronics';
+                
+                // Add example attributes
+                const attributesHtml = `
+                    <div class="form-group">
+                        <label class="form-label">Product Attributes</label>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Color</label>
+                                <input type="text" name="attr_values[1]" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Size</label>
+                                <input type="text" name="attr_values[2]" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Model</label>
+                                <input type="text" name="attr_values[3]" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                `;
+                attrArea.innerHTML = attributesHtml;
+            }
+        });
+    </script>
+</body>
+</html>

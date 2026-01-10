@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Inventory Management System - User Registration</title>
+    <!-- Import Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Import Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Theme Switcher -->
+    <input type="radio" name="erp-theme" id="erp-default" checked>
+    <input type="radio" name="erp-theme" id="erp-modern">
+    <input type="radio" name="erp-theme" id="erp-dark">
+
+    <div class="theme-switcher">
+        <label for="erp-default">Corporate</label>
+        <label for="erp-modern">Modern</label>
+        <label for="erp-dark">Dark</label>
+    </div>
+
+    <div class="container">
+        <!-- Registration Form Container -->
+        <div class="auth-container">
+            <h2 class="erp-title">ERP Inventory Management System</h2>
+            <h5 class="text-center text-muted mb-4">User Registration</h5>
+
+            <!-- Registration Form -->
+            <form id="registerForm">
+                <!-- Username Input -->
+                <div class="mb-3">
+                    <label for="regUsername" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="regUsername" placeholder="3-16 letters/numbers"
+                        required>
+                    <!-- Username Error Container -->
+                    <div id="usernameError" class="text-danger fs-6 d-none"></div>
+                </div>
+
+                <!-- Corporate Email Input -->
+                <div class="mb-3">
+                    <label for="regEmail" class="form-label">Corporate Email</label>
+                    <input type="email" class="form-control" id="regEmail"
+                        placeholder="Please enter valid corporate email" required>
+                    <!-- Email Error Container -->
+                    <div id="emailError" class="text-danger fs-6 d-none"></div>
+                </div>
+
+                <!-- Password Input -->
+                <div class="mb-3">
+                    <label for="regPassword" class="form-label">Set Password</label>
+                    <input type="password" class="form-control" id="regPassword"
+                        placeholder="At least 8 characters, including letters and numbers" required>
+                    <div class="password-hint">Hint: Recommended to include special characters (e.g., !@#) for enhanced
+                        security</div>
+                    <!-- Password Error Container -->
+                    <div id="passwordError" class="text-danger fs-6 d-none"></div>
+                </div>
+
+                <!-- Confirm Password Input -->
+                <div class="mb-3">
+                    <label for="regConfirmPwd" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="regConfirmPwd"
+                        placeholder="Please re-enter password" required>
+                    <div id="pwdMatchHint" class="text-danger fs-6 d-none">Passwords do not match, please re-enter</div>
+                </div>
+
+                <!-- User Agreement Checkbox -->
+                <div class="mb-4 form-check">
+                    <input type="checkbox" class="form-check-input" id="agreePolicy" required>
+                    <label class="form-check-label policy-text" for="agreePolicy">
+                        I have read and agree to the
+                        <a href="#" class="auth-link" data-bs-toggle="modal" data-bs-target="#userAgreementModal">User
+                            Agreement</a>
+                        and
+                        <a href="#" class="auth-link" data-bs-toggle="modal" data-bs-target="#dataSecurityModal">Data
+                            Security Policy</a>
+                    </label>
+                </div>
+
+                <!-- Registration Button -->
+                <button type="submit" class="btn btn-erp w-100 py-2">Complete Registration</button>
+
+                <!-- Login Link -->
+                <div class="text-center mt-3">
+                    Already have an account? <a href="login.html" class="auth-link fw-medium">Back to Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- User Agreement Modal -->
+    <div class="modal fade" id="userAgreementModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sample User Agreement</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Acceptance of Terms</h6>
+                    <p>By registering an account on the ERP Inventory Management System ("System"), you agree to comply
+                        with and be bound by these terms of service. If you do not agree, you may not use the System.
+                    </p>
+
+                    <h6>2. Account Responsibilities</h6>
+                    <p>You are responsible for maintaining the confidentiality of your account credentials (username and
+                        password) and for all activities conducted under your account. You agree to notify us
+                        immediately of any unauthorized use of your account.</p>
+
+                    <h6>3. Usage Restrictions</h6>
+                    <p>You shall not use the System for any unlawful purpose, to transmit harmful content, or to
+                        interfere with the System's functionality. You agree to use the System only for legitimate
+                        business purposes related to inventory management.</p>
+
+                    <h6>4. Intellectual Property</h6>
+                    <p>All content and software on the System are the property of the System owner or its licensors. You
+                        may not reproduce, distribute, or modify any material from the System without prior written
+                        permission.</p>
+
+                    <h6>5. Termination</h6>
+                    <p>We reserve the right to terminate your account at any time for violation of these terms, with or
+                        without notice.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Security Policy Modal -->
+    <div class="modal fade" id="dataSecurityModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sample Data Security Policy</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Data Collection</h6>
+                    <p>We collect personal data (username, corporate email) and business data (inventory records,
+                        transaction history) necessary for the System's operation. Data is collected only when
+                        voluntarily provided by users.</p>
+
+                    <h6>2. Data Storage & Protection</h6>
+                    <p>All data is stored on secure servers with encryption (SSL/TLS) for data in transit and at rest.
+                        Access to data is restricted to authorized personnel only, and regular security audits are
+                        conducted.</p>
+
+                    <h6>3. Data Usage</h6>
+                    <p>Your data is used solely to provide and improve the System's functionality, comply with legal
+                        obligations, and prevent fraudulent activities. We will not share your data with third parties
+                        without your explicit consent, except as required by law.</p>
+
+                    <h6>4. User Rights</h6>
+                    <p>You have the right to access, correct, or delete your personal data by contacting our support
+                        team. You may also request a copy of your data in a machine-readable format.</p>
+
+                    <h6>5. Data Retention</h6>
+                    <p>We retain your data for as long as your account is active or as required by law. Upon account
+                        deletion, data is securely erased or anonymized.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Import Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Link to external validation script -->
+    <script src="register-validation.js"></script>
+    
+</body>
+
+</html>
